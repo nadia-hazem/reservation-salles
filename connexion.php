@@ -6,7 +6,7 @@
 if (isset($_SESSION['login'])) {header("location: profil.php");} //redirection utilisateur connecté
 
 if (isset($_POST['submit'])) {
-    $user = new User;
+    $user = $_POST['login'];
     $succes = $user->connect($_POST['login'], $_POST['password']);
 
     $status = $user->getStatus(); //gestion messages erreurs

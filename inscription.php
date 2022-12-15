@@ -14,16 +14,16 @@
                 $select = mysqli_query($conn,"SELECT * FROM utilisateurs WHERE login='".$_POST['login']."'");
 
                 if($_POST['login'] = ""){ // si le login est vide
-                    echo "<p style='color:red'>Le champ nom d'utilisateur est vide.</p>";
+                    echo "<p style='color:red' class='alert alert-dark alert-dismissible fade show'>Le champ nom d'utilisateur est vide.</p>";
                 } 
                 elseif(mysqli_num_rows($select)) {
-                    echo '<p style="color: red;">Ce nom d\'utilisateur existe déjà</p>';
+                    echo "<p class='alert alert-dark alert-dismissible fade show' style='color: red;'>Ce nom d\'utilisateur existe déjà</p>";
                 } 
                 elseif($_POST['password']== "" || $_POST['password2']== ""){
-                    echo "<p style='color:red'>Le champs Mot de passe est vide.</p>";
+                    echo "<p class='alert alert-dark alert-dismissible fade show' style='color:red'>Le champs Mot de passe est vide.</p>";
                 } 
                 elseif ($_POST['password'] != $_POST['password2']) { 
-                    echo "<p style='color:red'>Les mots de passe ne correspondent pas.</p>";
+                    echo "<p class='alert alert-dark alert-dismissible fade show' style='color:red'>Les mots de passe ne correspondent pas.</p>";
                 } 
                 else {
                     //toutes les vérifications sont faites, on passe à l'enregistrement dans la base de données:

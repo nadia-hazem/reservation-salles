@@ -1,4 +1,11 @@
-<!-- PLANNING PAGE -->
+<!-- RESERVATION PAGE -->
+<?php
+    session_start();           
+    if (!$_SESSION ['login']) { // si la session n'est pas ouverte (protection de barre d'adresse)
+        header('Location: connexion.php'); // redirection vers la page de connexion
+    }
+    session_abort();
+?>
 
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/dbconnect.php'; ?> <!--connexion à la base de données-->
@@ -21,6 +28,7 @@
         list($date, $heure_d) = explode(" ", $reservations['debut']);
         list($date, $heure_f) = explode(" ", $reservations['fin']);
     }
+
 ?>
 
         <main>

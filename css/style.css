@@ -61,7 +61,7 @@ h1 {
     font-size: 55px;
     font-weight: 700;
     font-family: sans-serif;
-    color: #000;
+    color: #fff;
 }
 .btn {
     text-align: center;
@@ -91,6 +91,9 @@ p {
     font-family: sans-serif;
 }
 
+form {
+    padding: 0 5%;
+}
 /***********page planning ************/
 
 td#reserved {

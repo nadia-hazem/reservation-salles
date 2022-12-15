@@ -12,13 +12,14 @@
     $resultat = mysqli_fetch_all($query);
     //var_dump($resultat);
     $format= date('Y-m-d  H');
-    $requetedate = "SELECT debut,titre,id FROM reservations";
+    $requetedate = "SELECT reservations.debut, reservations.titre,reservations.id, utilisateurs.login FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id";
     $querydate = mysqli_query($conn, $requetedate);
     $resultatdate = mysqli_fetch_all($querydate);
     $tableaudatecount = count($resultatdate);
     
     //echo $format;
-    //var_dump($resultatdate);
+    /* var_dump($resultatdate); */
+    /* die(); */
     $stopitnow = false;
     $stopnope = false;
 ?>
@@ -29,7 +30,7 @@
         <div class="table-responsive">
             <table class="table table-hover align-middle text-center table-borderless">
                 <?php
-                    $login = $_SESSION['login'];
+
                     $jourssemaine = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
                     $j = 0;
                     $h = 8;
@@ -63,6 +64,7 @@
                                 $datejour = date("N", strtotime($resultatdate[$r][0]));
                                 $titreres = $resultatdate[$r][1];
                                 $idres = $resultatdate[$r][2];
+                                $login = $resultatdate[$r][3];
                                 
                                 //var_dump($tableaudatecount);
                                 if($datejour == $jourscases && $dateheure == $h)
