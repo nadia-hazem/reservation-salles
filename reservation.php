@@ -16,10 +16,6 @@
     {
         $id = (int)$_GET['id'];
 
-/*         $requete = "SELECT reservations.titre, reservations.description, reservations.debut, reservations.fin, utilisateurs.login FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id WHERE reservations.id = $id";
-        $queryusers = mysqli_query($conn, $requete);
-        $resultatusers = mysqli_fetch_assoc($queryusers); */
-
         // récupération des réservations
         $request = "SELECT reservations.titre, reservations.description, DATE_FORMAT(reservations.debut, '%d-%m-%Y %H') as debut, DATE_FORMAT(reservations.fin, '%d-%m-%Y %H') as fin, utilisateurs.login FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id WHERE reservations.id = $id";
         $exect_request = mysqli_query($conn, $request);
@@ -31,17 +27,30 @@
 
 ?>
 
-        <main>
-            <section id="event">
-                <section id="event-inner">
-            <?php 
-                    echo "<b>Réservée par l'utilisateur </b> ".$reservations['login']."<br>";
-                    echo "<b>Titre de l'évènement </b> ".$reservations['titre']."<br>";
-                    echo "<b>Description de l'évènement </b> " .$reservations['description']."<br>";
-                    echo "<b>Début de l'évènement </b> " .$heure_d."<br>"; 
-                    echo "<b>Fin de l'évènement </b> " .$heure_f."<br>"; 
-            ?>
-                </section>
-            </section>
+        <main role="main">
+
+            <div class="container">
+                <div>
+                    <h2><?php echo $reservations['titre']; ?></h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr><th>Détails</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>
+                                <?php 
+                                echo "<b>Réservée par l'utilisateur </b> ".$reservations['login']."<br>";
+                                echo "<b>Titre de l'évènement </b> ".$reservations['titre']."<br>";
+                                echo "<b>Description de l'évènement </b> " .$reservations['description']."<br>";
+                                echo "<b>Début de l'évènement </b> " .$heure_d."h <br>"; 
+                                echo "<b>Fin de l'évènement </b> " .$heure_f."h <br>"; 
+                                ?>
+                            </td></tr>
+                        </tbody>
+                    </table>
+                </div> <!-- /div table-responsive -->
+            </div> <!-- /container -->
         </main>
         <?php include("includes/footer.php")?>

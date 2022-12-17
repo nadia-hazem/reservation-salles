@@ -1,557 +1,173 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
 
+html, body {
+    margin:0;
+    padding:0;
+    min-height: 100vh;
+}
+a {
+    text-decoration: none!important;
+}
+a:hover {
+    color: #0056b3;
+    font-weight: 500;
+}
+img {
+    max-width: 100%;
+    padding-right: 10px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.block {
+    display: block;
+}
+.red {color: red; font-weight: 300;}
+.green {color: green; font-weight: 300;}
 .fa-envelope {
-    color: aliceblue;
+    color: #0056b3;
     padding: 0 10px;
     transition: ease-in-out 0.5s;
 }
+.fa.fa-hover-hidden {
+    color: #0056b3;
+    padding: 0px 5px;
+    transition: all .5s ease-in-out;
+    -moz-transition: all ease-in-out .5s;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
 
+.fa.fa-hover-show {
+    color: #9E2960;
+    padding: 0px 5px;
+    transition: all .5s ease-in-out;
+    -moz-transition: all ease-in-out .5s;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+
+* > .fa.fa-hover-show,
+*:hover > .fa.fa-hover-hidden {
+    display: none;
+}
+
+*:hover > .fa.fa-hover-show {
+    display: inline-block;
+}
+
+.fa-user-lock, .fa-lock {
+    float: right;
+}
 .mail:hover .fa-envelope:before {
     content: "\f658";
     color: #78909c;
     transform: rotate(-30deg);
     transition: ease-in-out 0.5s;
 }
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap');
 
-
-
-
-html, body {
-    min-height: 100vh;
+.hero-container {
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
 }
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    min-height: 50vh;
-    justify-content: center;
-    align-items: center;
-}
-
-header{
-    display: flex;
-    flex-direction: column;
-}
-
-/*---------------CSS PAGE D'ACCUEIL----------------*/
-
-.block .block-content {
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-.home-image {
-    text-align: center;
-}
-.home-title {
-    font-family: Arial, Helvetica, Sans-Serif;
+h1.hero-title {   
+    font-size: 55px;
+    font-weight: 700;
+    font-family: sans-serif;
     color: #fff;
-    font-weight: normal;
+}
+.hero {
+    background: url('../img/room3.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    transition: transform 2s;
+}
+
+.hero:hover {
+    transform: scale(1.15);
+}
+
+.hero-stuff {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
-h2.home-title {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-h3.home-title {
-    font-size: 17px;
-    margin-top: 40px;
-    
-}
-.home-title a {
-    color: #22adea;
-    text-decoration: none;
-    transition: all 0.25s ease-in-out;
-}
-.home-title a:hover {
-    color: #F0AD4E;
-}
-h1.home-image img {
-    margin: 0 auto;
-}
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-.heroimage {
-    margin-bottom: 0px;
-	background-image: url(../img/room3.jpg);
-    background-position: bottom center;
-	background-size: cover;
-	width: 100%;
-    min-height: 500px;
-}
-@media screen and (max-width: 768px) {
-    .hero-form select {
-        width: 100%;
-	}
-}
-/*********************/
-.navbar-toggler {
 
+h1 {
+    font-size: 55px;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #000;
+}
+.btn {
+    text-align: center;
+}
+a.btn {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 11px 30px;
+    background-color: #000;
+    color: #fff!important;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    transition: all 0.3s ease-out;
 }
 
-#logoheader{
-    width: 150px;
-    height: 100px;
+a.btn:hover {
+    background-image: linear-gradient(to bottom,#000,#000);
+}
+.pitch {
+    text-align: center;
+    margin: 5% 20%;
+}
+p {
+    font-family: sans-serif;
 }
 
-.headerbouton:hover{
-    border-top: 1.5px solid black;
-    padding-top: 7px;
-    background-image:url('images/listhover.gif');
-    background-size: 500px 350px;
+form {
+    padding: 0 5%;
+}
+.submit {
+    background: #dfe0e1;
+    transform: ease-in-out 0.5s;
+}
+.submit:hover {
+    background: #F8F9FA;
+    transform: ease-in-out 0.5s;
 }
 
-#imglogout:hover{
-    /*background-color: black;*/
-    transform: rotate(360deg) scale(1.5);
-    -webkit-transform: rotate(360deg) scale(1.5);
-}
+/***********page planning ************/
 
-#imglogout{
-    width: 28px;
-    height: 28px;
-    /*border: 2px solid rgb(54, 54, 54);
-    border-radius:50% 50% 50% 50%;
-    padding:3px;*/
-    transition: all 0.5s ease-out;
-}
-
-#bottomheaderbg{
-    background-image: url('images/reservationbg1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 150px;
-    border-bottom: 0.5px solid black;
-}
-
-.bienvenue{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-size: 90px;
-    color:white;
-    align-items: center;
-    height: 350px;
-    padding-right: 18%;
-    text-decoration: underline #d40000;
-    font-family: 'Dancing Script', cursive;
-}
-
-.articleimg img{
-    width: 210px;
-    height: 180px;
-    border:1px solid black;
-}
-
-#mainindex{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
-.articlemain{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.articleli1{
-    font-size: 15px;
-    max-width: 100px;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-}
-
-.sectionstyle{
-    background-color: rgb(247, 247, 247);
-    box-shadow: 0 15px 6px -6px #777;
-    flex-basis: 15px;
-    margin-left:35px;
-    margin-right:35px;
-}
-
-.sectionstyle:hover{
-    background-color: rgb(216, 215, 215);
-}
-
-footer{
-    background-image: url('images/footerbg.jpg');
-    height: 250px;
-    background-size: cover;
-    border-top: 2px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-footer a{
-    text-decoration: none;
+td#reserved {
+    background-color: #f4433624;
     color: black;
 }
 
-#footerimglogo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 250px;
-}
-
-#footerimglogo img{
-    width: 180px;
-    height: 120px;
-    margin-top: 3.5%;
-    margin-left: 3.5%;
-}
-
-#titrefooterlogo{
-    color:white;
-    align-items: center;
-    font-size: 70px;
-    font-family: 'Dancing Script', cursive;
-}
-
-.lifooter{
-    display: flex;
-    margin-right: 60px;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 28px;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-}
-
-#socialfootersection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#socialfooter{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-#socialfooter img{
-    width: 50px;
-    height: 50px;
-    align-items: center;
-}
-
-#socialfooter2 img{
-    width: 50px;
-    height: 50px;
-    align-items: center;
-}
-
-/*---------------CSS PAGE CONNEXION----------------*/
-
-#mainconnexion{
-    display: flex;
-}
-
-#h1connexion{
-    font-family: 'Dancing Script', cursive;
-    font-size: 100px;
-}
-
-#sectionformconnexion{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#connexionform{
-    display: flex;
-    flex-direction: column;
-    margin-top: 9%;
-    margin-bottom: 9%;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border-right: 1.5px solid black;
-    border-left: 1.5px solid black;
-    height: 100%;
-}
-
-#connexionform input{
-    border-radius: 15px 15px 15px 15px;
-    padding:1%;
-}
-
-#connexionform input:focus{
-    outline:none;
-}
-
-#mauvaislogs{
-    font-size: 25px;
+td#reserved a {
     color: red;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    display: block;
+    line-height: 16px;
 }
 
-/*---------------CSS PAGE D'INSCRIPTION----------------*/
-
-#maininscription{
-    display:flex;
+td#dispo a {
+    color: green;
+}
+.list-group-item {
+    border: none;
 }
 
-#h1inscription{
-    font-family: 'Dancing Script', cursive;
-    font-size: 100px;
-}
-
-#sectionforminscription{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#inscriptionform{
-    display: flex;
-    flex-direction: column;
-    margin-top: 9%;
-    margin-bottom: 9%;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border-right: 1.5px solid black;
-    border-left: 1.5px solid black;
-    height: 100%;
-}
-
-#inscriptionform input{
-    border-radius: 15px 15px 15px 15px;
-    padding:1%;
-}
-
-/*---------------CSS PAGE DE PROFIL----------------*/
-
-#mainprofil{
-    display:flex;
-}
-
-#h1profil{
-    font-family:'Dancing Script', cursive;
-    font-size: 100px;
-}
-
-#sectionformprofil{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    font-family: 'Bebas Neue', cursive;
-}
-
-#profilform{
-    display: flex;
-    flex-direction: column;
-    margin-top: 4%;
-    margin-bottom: 4%;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border-right: 1.5px solid black;
-    border-left: 1.5px solid black;
-    height: 100%;
-}
-
-#profilform input{
-    border-radius: 15px 15px 15px 15px;
-    padding:1%;
-}
-
-/*---------------CSS PAGE DU PLANNING----------------*/
-
-table{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    height: 100%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-collapse: collapse;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-}
-
-#thplanning{
-    padding: 18px;
-    padding-left: 50px;
-    padding-right: 50px;
-    border:1.5px black solid;
-}
-
-td{
-    margin-bottom: 5px;
-    margin-top: 5px;
-    text-align: center;
-    border: 1.5px black solid;
-    padding : 15px;
-}
-
-#tdheure{
-    padding-right: 25px;
-    padding-left: 25px;
-}
-
-#dispo{
-    background: lightgreen;
-}
-
-#dispo:hover{
-    background-color: green;
-}
-
-#reserved {
-    background : orange;
-}
-
-#reserved:hover{
-    background-color: red;
-}
-
-td a{
-    text-decoration: none;
-    font-weight: bold;
+footer a {
     color: black;
-}
-
-td a:hover{
-    color: white;
-}
-
-#sectiontableplanning{
-    display: flex;
-    width:100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-#sectiontableflex{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    /*border-right: 1.5px solid black;
-    border-left: 1.5px solid black;*/
-    height: 100%;
-}
-
-#planningliens a{
-    text-decoration: none;
-    color:black;
-}
-
-#planningliens a:visited{
-    text-decoration: none;
-    color:black;
-}
-
-#planningliens a:active{
-    text-decoration: none;
-    color:black;
-}
-
-/*---------------CSS DE RESERVATION FORM----------------*/
-
-#reservationh1{
-    font-family:'Dancing Script', cursive;
-    font-size: 65px;
-}
-
-#mainreservationform{
-    height: 100%;
-}
-
-#sectionevents{
-    display: flex;
-    width:100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-#sectioneventsflex{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width:100%; 
-    height: 100%;
-}
-
-#reservationform{
-    display: flex;
-    flex-direction: column;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border-right: 1.5px solid black;
-    border-left: 1.5px solid black;
-    height: 100%;
-    font-family: 'Bebas Neue', cursive;
-}
-
-#idneeded{
-    font-size: 50px;
-    margin-top: 43.5px;
-    margin-bottom: 43.5px;
-}
-
-/*---------------CSS D'EVENT----------------*/
-
-#event{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    font-family: 'Bebas Neue', cursive;
-    height: 100%;
-}
-
-#event-inner{
-    display: flex;
-    flex-direction: column;
-    padding-top: 4%;
-    padding-bottom: 4%;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border-right: 1.5px solid black;
-    border-left: 1.5px solid black;
-    height: 100%;
-}
-
-@media all (max-width: 768px) {
-    #thplanning{
-        width: 50%;
-        padding: 18px;
-        padding-left: 50px;
-        padding-right: 50px;
-        border:1.5px black solid;
-    }
 }

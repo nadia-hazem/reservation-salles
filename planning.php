@@ -4,12 +4,10 @@
 <?php include 'includes/dbconnect.php'; ?> <!--connexion à la base de données-->
 
 <?php
-
     //var_dump($_SESSION);
-    $conn = mysqli_connect("localhost", "root","","reservationsalles");
     $requete = "SELECT u.id , u.login , r.titre , r.description , r.debut , r.fin FROM utilisateurs AS u INNER JOIN reservations AS r ON u.id = r.id_utilisateur";
-    $query = mysqli_query($conn,$requete);
-    $resultat = mysqli_fetch_all($query);
+    $queryevent = mysqli_query($conn,$requete);
+    $resultat = mysqli_fetch_all($queryevent);
     //var_dump($resultat);
     $format= date('Y-m-d  H');
     $requetedate = "SELECT reservations.debut, reservations.titre,reservations.id, utilisateurs.login FROM reservations INNER JOIN utilisateurs ON reservations.id_utilisateur = utilisateurs.id";
@@ -26,84 +24,118 @@
 
 
 <main role="main">
-    <div class="container my-3">
+    <div class="container my-5">
         <div class="table-responsive">
-            <table class="table table-hover align-middle text-center table-borderless">
-                <?php
 
+            <table class="table table-hover align-middle text-center table-borderless table-sm">
+                
+                <?php
+                    date_default_timezone_set('Europe/Paris');
                     $jourssemaine = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+                    $today = date("w"); //représentation numérique du jour (Lundi = 1)
+
+                    for ($i = 0; $i < 6; $i++) { //Récupération du numéro des jours de la semaine en cours
+                        $thisweek[$i] = date("d", mktime(0, 0, 0, date("n"), date("d") - $today + $i, date("y")));
+                    }
+
+
+
                     $j = 0;
                     $h = 8;
                     $jourscases = 0;
+
+                    ?>
+                    <h1 class="mb-3">Planning <?php echo $jour_semaine = date('Y', time());?></h1>
+                    <h2>Semaine <?php echo $jour_semaine = date('W', time());?></h2>
+
+                    <table class="table table-condensed" style="table-layout: fixed">
+                    
+                <?php
                     echo '<thead class="table-light"><tr>';
-                    echo "<th></th>";
-                    
-                    while($j < 7) {
-                        echo "<th>".$jourssemaine[$j]."</th>";
-                        $j++;
-                    }
-                    echo '</tr></thead>';
-                    echo "<tbody>"; //TBODY
-                    while($h != 20) {
-                        $resok = false;
-                        echo "<tr>";
-                        if($jourscases == 0)
-                        {
-                            echo "<td id='tdheure'><b>".$h."h</b></td>";
-                            $jourscases++;
-                        }
-                        $r = 0;
-                            
-                        $jourscases = 1;
-                        while($jourscases < 8 && $jourscases != 0)
-                        {
-                            while($r < $tableaudatecount)
-                            {
-                                $stopitnow = true;
-                                $dateheure = date("G", strtotime($resultatdate[$r][0]));
-                                $datejour = date("N", strtotime($resultatdate[$r][0]));
-                                $titreres = $resultatdate[$r][1];
-                                $idres = $resultatdate[$r][2];
-                                $login = $resultatdate[$r][3];
-                                
-                                //var_dump($tableaudatecount);
-                                if($datejour == $jourscases && $dateheure == $h)
-                                {
-                                    echo "<td id='reserved'> ".$titreres."<br> par : ".$login." <br><a href='reservation.php?id=".$idres."'>voir</a> </td>";
-                                    $stopnope = true;
-                                }
-                                else {
-                                    $stopitnow = false;
-                                }
+                    ?>
+                    <tr>
+                        <th class="vide"></th>
+                        <th class="jour">Lun. <?php echo $jour_semaine = date('d/m', strtotime('monday this week'));?></th>
+                        <th class="jour">Mar. <?php echo $jour_semaine = date('d/m', strtotime('tuesday this week'));?></th>
+                        <th class="jour">Mer. <?php echo $jour_semaine = date('d/m', strtotime('wednesday this week'));?></th>
+                        <th class="jour">Jeu. <?php echo $jour_semaine = date('d/m', strtotime('thursday this week'));?></th>
+                        <th class="jour">Ven. <?php echo $jour_semaine = date('d/m', strtotime('friday this week'));?></th>
+                        <th class="vide">Sam. <?php echo $jour_semaine = date('d/m', strtotime('saturday this week'));?></th>
+                        <th class="vide">Dim. <?php echo $jour_semaine = date('d/m', strtotime('sunday this week'));?></th>
+                    </tr>                              
+                </thead>
+                <tbody> 
+                    <?php
+                        echo "<tbody>"; //TBODY
 
-                                        
-                                $r++;
-                                        
+                        while($h != 20) {
+                            $resok = false;
+                            echo "<tr>";
+                            if($jourscases == 0)
+                            {
+                                echo "<td id='tdheure'><b>".$h."h</b></td>";
+                                $jourscases++;
                             }
-
-                            if ($stopitnow == false  && $stopnope == false)
-                            {
-                                echo "<td id='dispo'><a href='reservation-form.php'>Libre </a></td>";
-                            } 
                             $r = 0;
-                            $jourscases++;
-                            $stopitnow = false;
-                            $stopnope = false;
-                        }
-
-                        // CREER UNE NOUVELLE BOUCLE POUR AFFICHER DANS LES TD ET PAS FAIRE UNE BOUCLE SEULEMENT POUR AFFICHER UN TD
                                 
+                            $jourscases = 1;
+                            while($jourscases < 8 && $jourscases != 0)
+                            {
+                                while($r < $tableaudatecount)
+                                {
+                                    $stopitnow = true;
+                                    $dateheure = date("G", strtotime($resultatdate[$r][0]));
+                                    $datejour = date("N", strtotime($resultatdate[$r][0]));
+                                    $titreres = $resultatdate[$r][1];
+                                    $idres = $resultatdate[$r][2];
+                                    $login = $resultatdate[$r][3];
+                                    
+                                    //var_dump($tableaudatecount);
+                                    if($datejour == $jourscases && $dateheure == $h)
+                                    {
+                                        echo "<td id='reserved'> ".$titreres."<br> par : ".$login." <br><a href='reservation.php?id=".$idres."'>voir</a> </td>";
+                                        $stopnope = true;
+                                    }
+                                    else {
+                                        $stopitnow = false;
+                                    }
+
+                                            
+                                    $r++;
+                                            
+                                }
+                                if ($stopitnow == false  && $stopnope == false)
+                                {
+                                    echo "<td id='dispo'><a href='reservation-form.php'>Libre</a></td>";
+                                    if($jourscases == 5) {
+                                        echo "<td id='closed'>fermé</td>";
+                                        $jourscases++;
+                                    }
+                                    if($jourscases == 6) {
+                                        echo "<td id='closed'>fermé</td>";
+                                        $jourscases++;
+                                    }
+                                } 
+                                $r = 0;
+                                $jourscases++;
+                                $stopitnow = false;
+                                $stopnope = false;
+                                if ($jourscases == 8)
+                                {
+                                    $jourscases = 0;
+                                }
+                            }
+                            // CREER UNE NOUVELLE BOUCLE POUR AFFICHER DANS LES TD ET PAS FAIRE UNE BOUCLE SEULEMENT POUR AFFICHER UN TD
+                            echo "</tr>";
+                            $jourscases = 0;
+                            $h++;
                             
-                        echo "</tr>";
-                        $jourscases = 0;
-                        $h++;
+                        }
+                    
                         
-                    }
-                
+                        echo '</tbody>';
+                        
                     
-                    echo '</tbody>';
-                    
-                
                 ?>
             </table>
         </div>
