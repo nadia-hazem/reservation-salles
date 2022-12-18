@@ -54,8 +54,8 @@
             </div>
         </div> <!-- end row -->
 
-        <h1 class="text-center mx-auto p-5 text-secondary">Ils nous font confiance</h1>
-        <div class="row align-items-center h-100">
+        <div id="carousel" class="row align-items-center h-100">
+            <h1 class="text-center mx-auto p-5 text-secondary">Ils nous font confiance</h1>
             <div class="slider">
                 <div class="slide-track">
                     <div class="slide logo carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
