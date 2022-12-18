@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--CSS-->
     <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="css/carousel.css" type="text/css" />
+    <link rel="stylesheet" href="css/carousel.scss" type="text/css" />
     <link rel="stylesheet" href="css/animations.css" media="screen" type="text/css" />
     <!--FONT-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,700,800" rel="stylesheet">
@@ -60,8 +60,8 @@
                                     Votre espace
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="profil.php">Profil</a></li>
-                                    <li><a class="dropdown-item" href="logout.php">Déconnexion</a></li>
+                                    <li><a class="dropdown-item" href="profil.php">Profil<i class="fa-regular fa-user pl-1"></i></i></a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Déconnexion<i class="fa-solid fa-power-off pl-1"></i></a></li>
                                 </ul>
                             </li>
                         <?php endif; ?>

@@ -1,4 +1,5 @@
 <!--INSCRIPTION PAGE-->
+
 <?php include 'includes/header.php';?>
 <?php include 'includes/dbconnect.php';?>    <!--connexion à la base de données-->
 

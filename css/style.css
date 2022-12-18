@@ -66,7 +66,8 @@ body {
 
 .red {color: red; font-weight: 300;}
 .green {color: green; font-weight: 300;}
-
+.border-white {border: 1px solid white;}
+.border-white-5 {border: 5px solid white;}
 /* .fa */
 
 .fa-envelope {
@@ -163,6 +164,10 @@ form {
 .submit:hover {
     background: #F8F9FA;
     transform: ease-in-out 0.5s;
+}
+
+main#main {
+    background: #fff;
 }
 
 /***********page planning ************/

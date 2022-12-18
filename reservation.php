@@ -1,4 +1,5 @@
 <!-- RESERVATION PAGE -->
+
 <?php
     session_start();           
     if (!$_SESSION ['login']) { // si la session n'est pas ouverte (protection de barre d'adresse)

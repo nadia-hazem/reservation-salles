@@ -17,12 +17,12 @@
 
     <div class="container">
         <div class="pitch">
-            <h3>Réservez en ligne, une salle de réunion équipée, en fonction de vos besoins et de vos disponibilités. </h3>
+            <h3>Réservez en ligne, une salle de réunion entièrement équipée, en fonction de vos besoins et de vos disponibilités.</h3>
         </div>
     </div>
 
     <div class="container">
-        <div class="row  align-items-stretch">
+        <div class="row align-items-stretch">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -55,39 +55,35 @@
         </div> <!-- end row -->
 
         <h1 class="text-center mx-auto p-5 text-secondary">Ils nous font confiance</h1>
-        <div class="brands_slider_container my-5">
-            <div id="carousel-brands" class="carousel slide" id="transition"  data-ride="carousel">
-                <div class="carousel-inner row w-100 mx-auto" role="listbox">
-
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                        <img src="img/apple.svg" class="img-fluid mx-auto d-block" alt="img1">
+        <div class="row align-items-center h-100">
+            <div class="slider">
+                <div class="slide-track">
+                    <div class="slide logo carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                        <img src="img/apple.png" class="img-fluid mx-auto d-block" alt="img1">
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/amazon.svg" class="img-fluid mx-auto d-block" alt="img2">
+                    <div class="slide logo carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active"> 
+                        <img src="img/amazon.png" class="img-fluid mx-auto d-block" alt="img2">
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/adidas.svg" class="img-fluid mx-auto d-block" alt="img3">
+                    <div class="slide carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active"> 
+                        <img src="img/adidas.png" class="img-fluid mx-auto d-block" alt="img3">
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/fedex.svg" class="img-fluid mx-auto d-block" alt="img4">
+                    <div class="slide carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                        <img src="img/fedex.png" class="img-fluid mx-auto d-block" alt="img4">
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/boeing.svg" class="img-fluid mx-auto d-block" alt="img5">
+                    <div class="slide carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                        <img src="img/nissan.png" class="img-fluid mx-auto d-block" alt="img5">
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/gucci.svg" class="img-fluid mx-auto d-block" alt="img6">
+                    <div class="slide carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">   
+                        <img src="img/gucci.png" class="img-fluid mx-auto d-block" alt="img6">
                     </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/lexus.svg" class="img-fluid mx-auto d-block" alt="img7">
-                    </div>
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                        <img src="img/mo.svg" class="img-fluid mx-auto d-block" alt="img8">
+                    <div class="slider__slide logo carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">   
+                    <img src="img/lexus.png" class="img-fluid mx-auto d-block" alt="img7">
                     </div>
                 </div>
+            </div> <!-- end slider-container -->
 
-            </div>
-        </div>
-
+        </div> <!-- end row -->
+        
     </div> <!-- end container -->
 
     </main>
