@@ -12,6 +12,7 @@ p {
 
 a {
     text-decoration: none!important;
+    transition: ease-in-out 0.2s;
 }
 
 a:hover {
@@ -166,29 +167,46 @@ form {
 
 /***********page planning ************/
 td, th {text-align: center;}
+.resa {
+    font-size: small;
+}
 
 td#reserved {
     background-color: #f4433624;
     color: black;
 }
-
 td#reserved a {
-    color: red;
+    color: rgb(123, 123, 123);
     display: block;
     line-height: 16px;
 }
 
+td#dispo {
+    background: #e3efdf;
+    opacity: .4;
+}
+td#dispo:hover {
+    background-color: #fff;
+}
 td#dispo a {
     color: green;
 }
+td#dispo a:hover {
+    font-weight: 500;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+td#closed {
+    background-color: #cac9c94e;
+    opacity: .4;
+    color: #7D7D7D;
+}
+
 .list-group-item {
     border: none;
 }
 
 footer a {
-    color: black;
-}
-td#closed {
-    background-color: #4b4b4b4e;
     color: black;
 }

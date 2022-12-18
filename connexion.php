@@ -11,12 +11,12 @@ if (isset($_POST['submit'])) {
 
     $status = $user->getStatus(); //gestion messages erreurs
     if ($status == "login") {
-        $alert = "Ce login n'existe pas.";
-    } elseif ($status == "password") {
-        $alert = "Vérifiez votre mot de passe.";
-    } elseif ($status == "connecte") {
-    $alert = 'Connexion réussie. Bienvenue @'.$user->getLogin().'<br> 
-    <a href="template.php?page=profil">Visiter votre profil</a>';
+        $alert = "<p class='alert alert-danger alert-dismissible fade show'>Ce login n'existe pas.</p>";
+    } elseif ($status == "Mot de passe") {
+        $alert = "<p class='alert alert-danger alert-dismissible fade show'>Vérifiez votre mot de passe.</p>";
+    } elseif ($status == "connecté") {
+    $alert = "<p class='alert alert-success alert-dismissible fade show'>Connexion réussie. Bienvenue @'.$user->getLogin().'<br> 
+    <a href='template.php?page=profil'>Visitez votre profil</a>";
     }
 
     if ($succes == 1) { //si connexion, stockage instance dans session
@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
             <h1>Connexion</h1>
 
             <?php if (isset($alert)) : ?> <!-- Alerte erreur-->
-                <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <?php echo $alert; ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
-                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                    echo "<p class='alert alert-danger alert-dismissible fade show'>Utilisateur ou mot de passe incorrect</p>";
             }?>
             
         </form>

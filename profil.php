@@ -15,37 +15,37 @@
     $password = $_SESSION['password']; 
 ?>
 
-<section class="container mb-5">
-    <h1>PROFIL</h1>
-    <div class="row align-items-center">
+<section class="container my-5">
+    <h1>Profil</h1>
+    <div class="row h-100">
 
         <!-- Article gauche -->
-        <article class="col ml-auto mr-auto">
+        <div class="col bg-light align-items-end">
             
             <form action="" method="post">
                 <div class="row mb-3 ">                
-                    <h3 class="form_title center">Modifier mon login</h3>
+                    <h3 class="form_title center py-3">Modifier mon login</h3>
                     <i class="bi bi-person-circle"></i>
                 </div>
-                <div class="row mb-3">
+                <div class="row my-3">
                     <label for="login" class="form-label">Login</label>
                     <input type="text" class="form-control" value="<?=$login?>" name="login" required>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row my-3">
                     <label for="password" class="form-label">Mot de passe</label>
                     <input type="password" class="form-control" placeholder="Saisissez mot de passe" name="password" required>
                 </div>
                 
-                <div class="row mb-3">
-                    <input type="submit" class="form-control"  name='submit' value="Valider" >
+                <div class="row mt-4">
+                    <input type="submit" class="form-control btn btn-dark mx-1 w-25"  name='submit' value="Valider" >
+                    <span class="small pt-1 text-secondary">Valider la modification de mon compte</span>
+                </div>
+                <div class="row mt-4">
+                    <input type="submit" class="form-control btn btn-outline-danger mx-1 w-25" name="delete" value="Supprimer" />
+                    <span class="small pt-1 text-secondary">Supprimer mon compte</span>
                 </div>
                 
-                <div class="row mb-3">
-                    <input type="submit" class="form-control"  name="delete" value="Supprimer mon compte" />
-                </div>
-                
-
                 <?php
 
             if(isset($_POST ['submit']) && isset ($_POST ['login']) && isset ($_POST ['password'])){
@@ -57,12 +57,12 @@
                     $login = $_POST ['login'];
                     $_SESSION['login'] = $login;
                     $_SESSION['password'] = $password;
-                    echo '<p class="green">Modification effectuée avec succès !</p>';
+                    echo "<p type='alert' class='alert alert-success alert-dismissible fade show'>Modification effectuée avec succès !</p>";
                     session_destroy();
                     /* header('Location: index.php'); */
                     
                 } else {
-                    echo "<p style='color:red'>Mot de passe incorrect</p>";
+                    echo "<p type='alert' class='alert alert-danger alert-dismissible fade show'>Mot de passe incorrect</p>";
                 }
             }
             else if (isset($_POST['delete'])) { // suppression du compte
@@ -70,26 +70,27 @@
                     if (password_verify($_POST['password'], $password)) {
                         $del = "DELETE FROM utilisateurs WHERE login = '$login' ";
                         if ($conn->query($del) === TRUE) {
-                            echo '<span class="green">Utilisateur supprimé</span>';
+                            echo '<span type="alert" class="alert alert-danger alert-dismissible fade show">Utilisateur supprimé</span>';
                             session_destroy();
-                            // header('Location: index.php');
+                            // header('Location: index.php'); provoque une erreur
+                            // header('refresh:2, url=index.php');  affiche erreur mais supprime user
                         } else {
-                            echo "<p style='color:red'>Erreur de suppression</p>";
+                            echo "<p type='alert' class='alert alert-danger alert-dismissible fade show'>Erreur de suppression</p>";
                         }
                     } else {
-                        echo "<p style='color:red'>Mot de passe incorrect</p>";
+                        echo "<p type='alert' class='alert alert-danger alert-dismissible fade show'>Mot de passe incorrect</p>";
                     }
                 } else {
-                    echo "<p style='color:red'>Veuillez saisir votre mot de passe</p>";
+                    echo "<p type='alert' class='alert alert-danger alert-dismissible fade show'>Veuillez saisir votre mot de passe</p>";
                 }
             }
 
-        ?>
+            ?>
             </form>
-        </article>
+        </div>
 
         <!-- Article droite -->
-        <article class="col-sm">
+        <div class="col-sm p-3 bg-light h-100">
             <form action="" method="post">
                 <div class="row mb-3">
                     <h3 class="form_title center">Changer de mot de passe</h3>
@@ -105,13 +106,10 @@
                 </div>
                 <div class="row mb-3">
                     <label for="password" class="form-label">Confirmez le mot de passe</label>
-                    <input type="password" class="form-control" name="password2">
+                    <input type="password" class="form-control" placeholder="Confirmez mot de passe" name="password2">
                 </div>
                 <div class="row mb-3">
-                    <input type="submit" class="form-control" id='submit' value="Valider" >
-                </div>
-            </form>
-        </article>
+                    <input type="submit" class="form-control btn btn-dark w-25" id='submit' value="Valider" >
 
         <?php
 
@@ -129,19 +127,21 @@
                         // stockage des nouvelles informations dans la session
                         $_SESSION['password'] = $password;
 
-                        echo "Mot de passe modifié avec succès";
+                        echo "<p class'type='alert' class='alert alert-success alert-dismissible fade show'>Mot de passe modifié avec succès</p>";
 
                     }
                     else {
-                        echo "<p style='color:red'>Les mots de passe ne correspondent pas</p>";
+                        echo "<p type='alert' class='alert alert-danger alert-dismissible fade show'>Les mots de passe ne correspondent pas</p>";
                     }
                 }
                 else {
-                    echo "<p style='color:red'>L'ancien mot de passe est incorrect</p>";
+                    echo "<p type='alert' class='alert alert-danger alert-dismissible fade show'>L'ancien mot de passe est incorrect</p>";
                 }
             }
         ?>
-        
+                </div>
+            </form>
+        </div>
     </div> <!-- end row -->
 </section> <!--end container-->
 

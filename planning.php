@@ -24,7 +24,7 @@
 
 
 <main role="main">
-    <div class="container my-5">
+    <div class="container my-5 shadow">
         <div class="table-responsive">
 
             <table class="table table-hover align-middle text-center table-borderless table-sm">
@@ -36,16 +36,16 @@
 
                     for ($i = 0; $i < 6; $i++) { //Récupération du numéro des jours de la semaine en cours
                         $thisweek[$i] = date("d", mktime(0, 0, 0, date("n"), date("d") - $today + $i, date("y")));
-                    }
-
-
+                    } 
 
                     $j = 0;
                     $h = 8;
                     $jourscases = 0;
 
                     ?>
-                    <h1 class="mb-3">Planning <?php echo $jour_semaine = date('Y', time());?></h1>
+                    <h1>Planning <?php echo $jour_semaine = date('Y', time());?></h1>
+                    <div class="float-right"><a href="inscription.php" class="btn btn-primary">S'inscrire</a></div>
+                    <div class="float-right"><a href="connexion.php" class="btn btn-primary">Connexion</a></div>
                     <h2>Semaine <?php echo $jour_semaine = date('W', time());?></h2>
 
                     <table class="table table-condensed" style="table-layout: fixed">
@@ -91,9 +91,11 @@
                                     $login = $resultatdate[$r][3];
                                     
                                     //var_dump($tableaudatecount);
+
                                     if($datejour == $jourscases && $dateheure == $h)
-                                    {
-                                        echo "<td id='reserved'> ".$titreres."<br> par : ".$login." <br><a href='reservation.php?id=".$idres."'>voir</a> </td>";
+                                    {   $extrait_titre = substr($titreres, 0, 16);
+                                        $extrait_login = substr($login, 0, 10);
+                                        echo "<td class='resa text-wrap' id='reserved'> <b>".$extrait_titre.".</b><br> par ".$extrait_login.".<br><a href='reservation.php?id=".$idres."'><i class='fa-solid fa-2x fa-eye'></i></a></td>";
                                         $stopnope = true;
                                     }
                                     else {

@@ -29,26 +29,18 @@
 
         <main role="main">
 
-            <div class="container">
+            <div class="container my-5">
                 <div>
-                    <h2><?php echo $reservations['titre']; ?></h2>
+                    <h2 class="text-center"><?php echo $reservations['titre']; ?></h2>
                 </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr><th>Détails</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>
-                                <?php 
-                                echo "<b>Réservée par l'utilisateur </b> ".$reservations['login']."<br>";
-                                echo "<b>Titre de l'évènement </b> ".$reservations['titre']."<br>";
-                                echo "<b>Description de l'évènement </b> " .$reservations['description']."<br>";
-                                echo "<b>Début de l'évènement </b> " .$heure_d."h <br>"; 
-                                echo "<b>Fin de l'évènement </b> " .$heure_f."h <br>"; 
-                                ?>
-                            </td></tr>
-                        </tbody>
+                <div class="table-responsive w-50 m-auto">
+                    <h4 class="lead text-center bg-light py-3">Détails de la réservation</h4>
+                    <table class="table">                        
+                        <tr><td class="text-left"><b>Réservé par l'utilisateur </b></td><td class="text-left"><?=$reservations['login']?></td></tr>
+                        <tr><td class="text-left"><b>Titre de l'évènement </b></td><td class="text-left"><?=$reservations['titre']?></td></tr>
+                        <tr><td class="text-left"><b>Description de l'évènement </b></td><td class="text-left"><?=$reservations['description']?></td></tr>
+                        <tr><td class="text-left"><b>Début de l'évènement </b></td><td class="text-left"><?=$heure_d?> h </td></tr>
+                        <tr><td class="text-left"><b>Fin de l'évènement </b></td><td class="text-left"><?=$heure_f?> h </td></tr>
                     </table>
                 </div> <!-- /div table-responsive -->
             </div> <!-- /container -->
