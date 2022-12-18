@@ -76,7 +76,7 @@
                     <div class="slide carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">   
                         <img src="img/gucci.png" class="img-fluid mx-auto d-block" alt="img6">
                     </div>
-                    <div class="slider__slide logo carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">   
+                    <div class="slide carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">   
                     <img src="img/lexus.png" class="img-fluid mx-auto d-block" alt="img7">
                     </div>
                 </div>
