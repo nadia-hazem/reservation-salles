@@ -37,8 +37,8 @@
     date_default_timezone_set("Europe/Paris");
     $loginlog = $_SESSION['id'];
     $intloginlog = intval($loginlog);
-    $conn = mysqli_connect("localhost", "root","","reservationsalles");
-
+    //$conn = mysqli_connect("localhost", "root","","reservationsalles");
+    $conn = mysqli_connect("localhost", "nadia-hazem", "*dbpassword*", "nadia-hazem_reservationsalles");
 ?>
 
     <main>
